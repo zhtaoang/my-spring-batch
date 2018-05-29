@@ -11,26 +11,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomJobLauncher {
 
-	@Autowired
-	JobLauncher jobLauncher;
+    @Autowired
+    JobLauncher jobLauncher;
 
-	@Autowired
-	Job job;
+    @Autowired
+    Job job;
 
-	public void run() {
+    public void run() {
 
-	  try {
-		JobParameters jobParameters =
-		  new JobParametersBuilder()
-		  .addLong("time",System.currentTimeMillis()).toJobParameters();
-			
-		JobExecution execution = jobLauncher.run(job, jobParameters);
-		System.out.println("Exit Status : " + execution.getStatus());
-			
-	  } catch (Exception e) {
-		e.printStackTrace();
-	  }
+        try {
+            JobParameters jobParameters =
+                    new JobParametersBuilder()
+                            .addLong("time", System.currentTimeMillis()).toJobParameters();
 
-	}
+            JobExecution execution = jobLauncher.run(job, jobParameters);
+            System.out.println("Exit Status : " + execution.getStatus());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

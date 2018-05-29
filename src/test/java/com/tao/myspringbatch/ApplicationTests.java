@@ -15,8 +15,9 @@ public class ApplicationTests {
     CustomJobLauncher launcher;
 
     @Test
-    public void contextLoads() {
+    public void contextLoads() throws InterruptedException {
         launcher.run();
+        Thread.sleep(10000);
     }
 
 
