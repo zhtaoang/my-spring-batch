@@ -1,6 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.0.2.RELEASE'
+        mainClassName = 'com.tao.myspringbatch.Application'
     }
     repositories {
         mavenCentral()
@@ -11,13 +12,14 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.tao'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -26,6 +28,9 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-batch')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('com.h2database:h2')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.batch:spring-batch-test')
 }
